@@ -97,7 +97,7 @@ public class DicomFile {
                 }
             }
         } catch (IOException ex) {
-            log.warn("error reading file error [{}]", ex);
+            log.warn("reading file error [{}]", ex);
             return false;
         }
         return true;
@@ -124,8 +124,8 @@ public class DicomFile {
             dos.finish();
             dos.flush();
             dos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            log.error("save dicom file error [{}]", ex);
         }
     }
 }
