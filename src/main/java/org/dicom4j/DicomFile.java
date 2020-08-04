@@ -3,6 +3,7 @@ package org.dicom4j;
 
 import org.dcm4che3.data.Attributes;
 import org.dcm4che3.io.DicomInputStream;
+import org.dcm4che3.io.DicomOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,12 +23,20 @@ public class DicomFile {
 
     public DicomFile() {
         dataset = new Attributes();
+        fileMetaInfo = new Attributes();
     }
 
     /**
      * Gets the DICOM dataset of the file.
      */
     public Attributes dataset;
+
+
+    /**
+     * Gets the DICOM file meta information of the file.
+     */
+    public Attributes fileMetaInfo;
+
 
     /***
      * Open dicom file
@@ -45,8 +54,8 @@ public class DicomFile {
         }
         try {
             DicomInputStream dis = new DicomInputStream(file);
-            dis.setIncludeBulkData(DicomInputStream.IncludeBulkData.NO);
             df.dataset = dis.readDataset(-1, -1);
+            df.fileMetaInfo = dis.readFileMetaInformation();
             dis.close();
         } catch (IOException ex) {
             log.error("reading dicom file error [{}]", ex);
@@ -92,5 +101,31 @@ public class DicomFile {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Save dicom file
+     *
+     * @param fileName The filename of the DICOM file
+     */
+    public void save(String fileName) {
+        save(new File(fileName));
+    }
+
+    /**
+     * Save dicom file
+     *
+     * @param file File instance
+     */
+    public void save(File file) {
+        try {
+            DicomOutputStream dos = new DicomOutputStream(file);
+            dos.writeDataset(fileMetaInfo, dataset);
+            dos.finish();
+            dos.flush();
+            dos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

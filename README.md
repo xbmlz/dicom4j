@@ -6,6 +6,11 @@ Dicom tools based on dcm4che3
 #### File Operations
 
 ```java
-DicomFile file = DicomFile.open("E:/test.dcm");
+// read
+DicomFile file = DicomFile.open("test.dcm");
 String patientName = file.dataset.getString(Tag.PatientName);
+
+// write
+file.dataset.setString(Tag.PatientName, VR.PN, "DOE^JOHN");
+file.save("test2.dcm");
 ```
