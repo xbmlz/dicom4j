@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.dicom4j</groupId>
+    <artifactId>dicom4j</artifactId>
+    <version>0.0.1-beta1</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <dcm4che.version>5.19.1</dcm4che.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>www.dcm4che.org</id>
+            <name>dcm4che Repository</name>
+            <url>http://www.dcm4che.org/maven2/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.dcm4che</groupId>
+            <artifactId>dcm4che-core</artifactId>
+            <version>${dcm4che.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
