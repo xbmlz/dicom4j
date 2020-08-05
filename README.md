@@ -30,3 +30,8 @@ convert.toJson("E:/test.json");
 // convert to pdf
 convert.toPdf("E:/test.pdf");
 ```
+#### C-Echo SCP
+
+```java
+new DicomServer(11112, new BasicCEchoSCP()).start();
+```
