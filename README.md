@@ -23,4 +23,10 @@ DicomConvert convert = new DicomConvert("E:/test.dcm");
 convert.toImage("E:/test.jpg");
 convert.toImage("E:/test.png");
 convert.toImage("E:/test.bmp");
+
+// convert to json
+convert.toJson("E:/test.json");
+
+// convert to pdf
+convert.toPdf("E:/test.pdf");
 ```
