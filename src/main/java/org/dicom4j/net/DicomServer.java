@@ -54,10 +54,12 @@ public class DicomServer {
         this.associationHandler = associationHandler;
     }
 
-    public DicomServer(int port, AbstractDicomService handler, AssociationHandler associationHandler) {
+    public DicomServer(String host, int port, String aeTitle, AbstractDicomService handler) {
+        this.host = host;
         this.port = port;
+        this.aeTitle = aeTitle;
         this.handler = handler;
-        this.associationHandler = associationHandler;
+        this.associationHandler = null;
     }
 
     public DicomServer(int port, AbstractDicomService handler) {

@@ -34,5 +34,6 @@ convert.toPdf("E:/test.pdf");
 #### C-Echo SCP
 
 ```java
-new DicomServer(11112, new BasicCEchoSCP()).start();
+new DicomServer(11112, new BasicCEchoSCP()).start();  // alt1
+new DicomServer("127.0.0.1", 11112, "PACS", new BasicCEchoSCP()).start();  // alt2
 ```
