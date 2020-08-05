@@ -1,6 +1,5 @@
 package org.dicom4j;
 
-
 import org.dcm4che3.data.Attributes;
 import org.dcm4che3.io.DicomInputStream;
 import org.dcm4che3.io.DicomOutputStream;
@@ -19,7 +18,7 @@ import java.io.IOException;
  */
 public class DicomFile {
 
-    public final static Logger log = LoggerFactory.getLogger(DicomFile.class);
+    private final static Logger log = LoggerFactory.getLogger(DicomFile.class);
 
     public DicomFile() {
         dataset = new Attributes();

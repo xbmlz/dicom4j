@@ -14,3 +14,13 @@ String patientName = file.dataset.getString(Tag.PatientName);
 file.dataset.setString(Tag.PatientName, VR.PN, "DOE^JOHN");
 file.save("test2.dcm");
 ```
+
+#### File Convert
+
+```java
+// convert to image
+DicomConvert convert = new DicomConvert("E:/test.dcm");
+convert.toImage("E:/test.jpg");
+convert.toImage("E:/test.png");
+convert.toImage("E:/test.bmp");
+```
